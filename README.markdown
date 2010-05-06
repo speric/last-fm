@@ -11,7 +11,7 @@ last-fm
 	git submodule add git://github.com/speric/last-fm.git vendor/plugins/last-fm
 
 **Use**
-	last_fm = LastFm.new("ericfarkas")
+	last_fm = LastFm.new("ericfarkas") #initialize with your last.fm username
 	
 	#top artists overall
 	top_artists = last_fm.topartists
@@ -31,7 +31,7 @@ last-fm
 	# latest weekly artist chart	
 	top_artists = last_fm.weeklyartistchart
 
-Each method returns an Array of `Artist` object, which each have a `name`, `playcount`, and `url` properties.
+Each method returns an Array of `Artist` objects, which each have a `name`, `playcount`, and `url` properties.
 
 
 The topartists feed from last.fm only recognizes 3, 6, 9, and 12 months as parameters.  Anything else will return top artists overall.
