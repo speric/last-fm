@@ -1,17 +1,42 @@
-google-define
+last-fm
 ============
 
-*Get word definitions from Google*
+*Wrapper class for parsing last.fm XML feeds*
 
 **Required gems**
 
-* hpricot
+* rexml
 
 **Install**
-	git submodule add git://github.com/speric/google-define.git vendor/plugins/google-define
+	git submodule add git://github.com/speric/last-fm.git vendor/plugins/last-fm
 
 **Use**
-	GoogleDefine::define("tasty")
+	last_fm = LastFm.new("ericfarkas")
+	
+	#top artists overall
+	top_artists = last_fm.topartists
+	top_artists.first.name
+	=> "Thrice"
+	top_artists.first.playcount
+	=> "2600"
+	top_artists.first.url
+	=> "http://www.last.fm/music/Thrice"
 
-Returns an Array of the `<li>` elements from [http://www.google.com/search?q=define%3Atasty](http://www.google.com/search?q=define%3Atasty), with the HTML stripped (except for quotings).  If there are no definitions for the word given, an empty Array will be returned.
+	# top artists for the last 3 months	
+	top_artists = last_fm.topartists(3)
 
+	# top artists for the last 6 months
+	top_artists = last_fm.topartists(6)
+
+	# latest weekly artist chart	
+	top_artists = last_fm.weeklyartistchart
+
+Each method returns an Array of `Artist` object, which each have a `name`, `playcount`, and `url` properties.
+
+
+The topartists feed from last.fm only recognizes 3, 6, 9, and 12 months as parameters.  Anything else will return top artists overall.
+
+**TODO**
+* Generate documentation
+* Also include URLs for images in Artist object
+* some basic tests
