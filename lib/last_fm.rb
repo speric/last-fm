@@ -27,10 +27,6 @@ class LastFm
   end
   
   def parse_response(items, parse_on)
-    artists = Array.new
-    items.elements.each(parse_on) do |i|
-      artists << Artist.new(i)
-    end
-    artists
+    items.elements.collect(parse_on){|i| Artist.new(i) }
   end
 end
