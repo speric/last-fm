@@ -29,7 +29,7 @@ last-fm
 	top_artists = last_fm.topartists(6)
 
 	# latest weekly artist chart	
-	top_artists = last_fm.weeklyartistchart
+	weekly = last_fm.weeklyartistchart
 
 Each method returns an Array of `Artist` objects, which each have a `name`, `playcount`, and `url` properties.
 
