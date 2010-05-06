@@ -27,6 +27,6 @@ class LastFm
   end
   
   def parse_response(items, parse_on)
-    items.elements.collect(parse_on){|i| Artist.new(i) }
+    items.elements.collect(parse_on){|i| Artist.new(i)}
   end
 end
