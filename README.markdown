@@ -3,6 +3,8 @@ last-fm
 
 *Wrapper class for parsing last.fm XML feeds*
 
+In addition to it's API, Last.fm offers two XML feeds, one for top artists (overall, or for the last 3/6/9/12 months), and a weekly artist chart.  This plugin makes parsing those feeds a little easier. 
+
 **Required gems**
 
 * rexml
