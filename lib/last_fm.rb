@@ -10,20 +10,19 @@ class LastFm
   
   #get the topartists for the last 3, 6, 9 or 12 months.  Passing no parameter returns the top artists overall
   def topartists(duration = 0)
-    response = send_request("topartists.xml?period=#{duration}month")
-    parse_response(response, 'topartists/artist')
+    send_request("topartists.xml?period=#{duration}month", "topartists/artist")
   end
 
   #latest weekly aritst chart
   def weeklyartistchart
-    response = send_request("weeklyartistchart.xml")
-    parse_response(response, 'weeklyartistchart/artist')
+    send_request("weeklyartistchart.xml", "weeklyartistchart/artist")
   end
   
   private
   
-  def send_request(endpoint)
-    REXML::Document.new(Net::HTTP.get_response(URI.parse("#{@startpoint}#{endpoint}")).body)
+  def send_request(endpoint, parse_on)
+    response = REXML::Document.new(Net::HTTP.get_response(URI.parse("#{@startpoint}#{endpoint}")).body)
+    parse_response(response, parse_on)
   end
   
   def parse_response(items, parse_on)
