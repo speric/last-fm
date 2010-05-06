@@ -38,6 +38,4 @@ The topartists feed from last.fm only recognizes 3, 6, 9, and 12 months as param
 
 **TODO**
 
-* Generate documentation
 * Also include URLs for images in Artist object
-* some basic tests
