@@ -37,6 +37,7 @@ Each method returns an Array of `Artist` object, which each have a `name`, `play
 The topartists feed from last.fm only recognizes 3, 6, 9, and 12 months as parameters.  Anything else will return top artists overall.
 
 **TODO**
+
 * Generate documentation
 * Also include URLs for images in Artist object
 * some basic tests
