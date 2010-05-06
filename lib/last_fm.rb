@@ -8,22 +8,23 @@ class LastFm
     @startpoint = "http://ws.audioscrobbler.com/2.0/user/#{username}/"
   end
   
-  # topartists for the last 3, 6, 9 or 12 months.  
+  # get the topartists for the last 3, 6, 9 or 12 months.  
   # Passing no parameter returns the top artists overall
   def topartists(duration = 0)
-    send_request("topartists.xml?period=#{duration}month", "topartists/artist")
+    response = send_request("topartists.xml?period=#{duration}month")
+    parse_response(response, 'topartists/artist')
   end
 
   # latest weekly aritst chart
   def weeklyartistchart
-    send_request("weeklyartistchart.xml", "weeklyartistchart/artist")
+    response = send_request("weeklyartistchart.xml")
+    parse_response(response, 'weeklyartistchart/artist')
   end
   
   private
   
-  def send_request(endpoint, parse_on)
-    response = REXML::Document.new(Net::HTTP.get_response(URI.parse("#{@startpoint}#{endpoint}")).body)
-    parse_response(response, parse_on)
+  def send_request(endpoint)
+    REXML::Document.new(Net::HTTP.get_response(URI.parse("#{@startpoint}#{endpoint}")).body)
   end
   
   def parse_response(items, parse_on)
