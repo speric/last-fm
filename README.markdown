@@ -10,6 +10,7 @@ In addition to it's API, Last.fm offers two XML feeds, one for top artists (over
 * rexml
 
 **Install**
+	
 	git submodule add git://github.com/speric/last-fm.git vendor/plugins/last-fm
 
 **Use**
