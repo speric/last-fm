@@ -13,6 +13,7 @@ In addition to it's API, Last.fm offers two XML feeds, one for top artists (over
 	git submodule add git://github.com/speric/last-fm.git vendor/plugins/last-fm
 
 **Use**
+
 	last_fm = LastFm.new("ericfarkas") #initialize with your last.fm username
 	
 	#top artists overall
